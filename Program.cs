@@ -16,6 +16,12 @@ namespace Vettore
             Console.WriteLine(v1-v2);
             Console.WriteLine(v1*v2);
             Console.WriteLine(v1/v2);
+            float s = 5;
+            Console.WriteLine(v1*s);
+            Console.WriteLine(s*v1);
+            Console.WriteLine(v1/s);
+            Console.WriteLine(+v1);
+            Console.WriteLine(-v1);
 
             Console.ReadLine();
         }
