@@ -12,7 +12,7 @@ namespace Vettore
         {
             Vector v1 = new Vector(15, 10);
             Vector v2=new Vector(30, 10);
-            /*Console.WriteLine(v1+v2);
+            Console.WriteLine(v1+v2);
             Console.WriteLine(v1-v2);
             Console.WriteLine(v1*v2);
             Console.WriteLine(v1/v2);
@@ -21,7 +21,7 @@ namespace Vettore
             Console.WriteLine(s*v1);
             Console.WriteLine(v1/s);
             Console.WriteLine(+v1);
-            Console.WriteLine(-v1);*/
+            Console.WriteLine(-v1);
             Console.WriteLine(v1.Versore());
             Console.WriteLine(v1.Modulo());
             Console.ReadLine();
