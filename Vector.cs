@@ -51,22 +51,6 @@ namespace Vettore
         {
             return !(f == f2);
         }
-        public static bool operator >(Vector f, Vector f2)
-        {
-            return f.Modulo() > f2.Modulo();
-        }
-        public static bool operator <(Vector f, Vector f2)
-        {
-            return f.Modulo() < f2.Modulo();
-        }
-        public static bool operator >=(Vector f, Vector f2)
-        {
-            return f.Modulo() >= f2.Modulo();
-        }
-        public static bool operator <=(Vector f, Vector f2)
-        {
-            return f.Modulo() <= f2.Modulo();
-        }
         public static Vector operator +(Vector a, Vector b)
         {
             return new Vector(a.X + b.X, a.Y + b.Y);
