@@ -8,16 +8,35 @@ namespace Vettore
 {
     internal class Vector
     {
-        public float X { get; set; }
-        public float Y { get; set; }
-        public Vector(float x, float y)
+        readonly public double X;
+        readonly public double Y;
+        public Vector(double x, double y)
         {
             X = x;
             Y = y;
         }
+        public Vector Parse(string s)
+        {
+            string[] componenti = s.Split(';');
+            double x = double.Parse(componenti[0]);
+            double y = double.Parse(componenti[1]);
+            return new Vector(x, y);
+        }
+        public Vector TryParse(string s)
+        {
+            string[] componenti = s.Split(';');
+            if (double.TryParse(componenti[0], out double x) && double.TryParse(componenti[1], out double y))
+            {
+                return new Vector(x, y);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public override string ToString()
         {
-            return X+";"+Y;
+            return X + "   " + Y;
         }
         public static bool operator ==(Vector f, Vector f2)
         {
@@ -50,35 +69,35 @@ namespace Vettore
         }
         public static Vector operator +(Vector a, Vector b)
         {
-            return new Vector(a.X+b.X, a.Y+b.Y);
+            return new Vector(a.X + b.X, a.Y + b.Y);
         }
         public static Vector operator -(Vector a, Vector b)
         {
-            return new Vector(a.X-b.X, a.Y-b.Y);
+            return new Vector(a.X - b.X, a.Y - b.Y);
         }
         public static Vector operator *(Vector a, Vector b)
         {
-            return new Vector(a.X*b.X, a.Y*b.Y);
+            return new Vector(a.X * b.X, a.Y * b.Y);
         }
         public static Vector operator /(Vector a, Vector b)
         {
             return new Vector(a.X / b.X, a.Y / b.Y);
         }
-        public static Vector operator *(Vector a, float b)
+        public static Vector operator *(Vector a, double b)
         {
             return new Vector(a.X * b, a.Y * b);
         }
-        public static Vector operator *(float b, Vector a)
+        public static Vector operator *(double b, Vector a)
         {
             return new Vector(a.X * b, a.Y * b);
         }
-        public static Vector operator /(Vector a, float b)
+        public static Vector operator /(Vector a, double b)
         {
             return new Vector(a.X / b, a.Y / b);
         }
         public static Vector operator -(Vector a)
         {
-            return (a*(-1));
+            return (a * (-1));
         }
         public static Vector operator +(Vector a)
         {
@@ -86,22 +105,11 @@ namespace Vettore
         }
         public double Modulo()
         {
-            return Math.Sqrt(X*X+Y*Y);
-        }
-        public Vector ValoreAssoluto()
-        {
-            if (this.Modulo() < 0)
-            {
-                return this * (-1);
-            }
-            else
-            {
-                return this;
-            }
+            return Math.Sqrt(X * X + Y * Y);
         }
         public Vector Versore()
         {
-            return this/this.ValoreAssoluto();
+            return this / this.Modulo();
         }
 
     }
